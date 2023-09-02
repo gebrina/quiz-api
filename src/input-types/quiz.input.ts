@@ -4,7 +4,7 @@ import { QuizCategoryInput } from './quiz-category.input';
 
 @InputType()
 export class QuizInput {
-  @Field(() => ID)
+  @Field(() => ID, { nullable: true })
   id: string;
 
   @Field(() => [QuestionInput])

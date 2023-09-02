@@ -1,5 +1,5 @@
 import { Inject } from '@nestjs/common';
-import { Resolver, Query, Parent, Args, Mutation } from '@nestjs/graphql';
+import { Resolver, Query, Parent, Args, Mutation, ID } from '@nestjs/graphql';
 import { QuizCategory } from 'src/entities/quiz-category.entity';
 import { QuizCategoryService } from './quiz-category.service';
 import { QuizCategoryInput } from 'src/input-types/quiz-category.input';

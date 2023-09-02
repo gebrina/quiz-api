@@ -3,12 +3,12 @@ import { QuizInput } from './quiz.input';
 
 @InputType()
 export class QuizCategoryInput {
-  @Field(() => ID)
+  @Field(() => ID, { nullable: true })
   id: string;
 
   @Field(() => String)
   name: string;
 
-  @Field(() => [QuizInput])
+  @Field(() => [QuizInput], { nullable: true })
   quizzes: QuizInput[];
 }

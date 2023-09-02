@@ -11,11 +11,14 @@ export class QuizCategoryService {
   ) {}
 
   async findAll(): Promise<QuizCategory[]> {
-    return await this.quizCategoryRepo.find();
+    return await this.quizCategoryRepo.find({ relations: { quizzes: true } });
   }
 
   async findOne(id: string): Promise<QuizCategory> {
-    return await this.quizCategoryRepo.findOneBy({ id });
+    return await this.quizCategoryRepo.findOne({
+      where: { id },
+      relations: { quizzes: true },
+    });
   }
 
   async create(quizCategory: QuizCategory): Promise<QuizCategory> {

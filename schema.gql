@@ -72,7 +72,7 @@ input UserInput {
 }
 
 input QuizInput {
-  id: ID!
+  id: ID
   questions: [QuestionInput!]!
   user: UserInput!
   category: QuizCategoryInput!
@@ -93,7 +93,7 @@ input ChoiceInput {
 }
 
 input QuizCategoryInput {
-  id: ID!
+  id: ID
   name: String!
-  quizzes: [QuizInput!]!
+  quizzes: [QuizInput!]
 }

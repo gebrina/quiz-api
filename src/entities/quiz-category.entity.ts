@@ -10,7 +10,7 @@ export class QuizCategory {
   id: string;
 
   @Field()
-  @Column()
+  @Column({ unique: true })
   name: string;
 
   @Field(() => [Quiz])
