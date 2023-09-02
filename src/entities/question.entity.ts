@@ -20,7 +20,7 @@ export class Question {
 
   @Field(() => [Choice])
   @ManyToOne(() => Choice, (choice) => choice.question)
-  choice: Choice[];
+  choices: Choice[];
 
   @Field(() => Quiz)
   @ManyToOne(() => Quiz, (quiz) => quiz.questions)

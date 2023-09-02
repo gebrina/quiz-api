@@ -1,4 +1,5 @@
 import { InputType, Field, ID } from '@nestjs/graphql';
+import { QuizInput } from './quiz.input';
 
 @InputType()
 export class UserInput {
@@ -22,4 +23,7 @@ export class UserInput {
 
   @Field(() => Date, { nullable: true })
   updatedAt: Date;
+
+  @Field(() => [QuizInput])
+  quizzes: QuizInput[];
 }

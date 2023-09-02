@@ -1,11 +1,5 @@
 import { ObjectType, Field, ID } from '@nestjs/graphql';
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  ManyToOne,
-  OneToMany,
-} from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
 import { QuizCategory } from './quiz-category.entity';
 import { User } from './user.entity';
 import { Question } from './question.entity';

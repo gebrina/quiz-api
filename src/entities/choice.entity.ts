@@ -15,6 +15,6 @@ export class Choice {
   choice: string;
 
   @Field(() => Question)
-  @ManyToOne(() => Question, (quetion) => quetion.choice)
+  @ManyToOne(() => Question, (quetion) => quetion.choices)
   question: Question;
 }

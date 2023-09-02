@@ -1,9 +1,26 @@
 import { InputType, Field, ID } from '@nestjs/graphql';
+import { UserInput } from './user.input';
+import { QuizCategoryInput } from './quiz-category.input';
+
+@InputType()
+export class QuizInput {
+  @Field(() => ID)
+  id: string;
+
+  @Field(() => [QuestionInput])
+  questions: QuestionInput[];
+
+  @Field(() => UserInput)
+  user: UserInput;
+
+  @Field(() => QuizCategoryInput)
+  category: QuizCategoryInput;
+}
 
 @InputType()
 export class QuestionInput {
   @Field(() => ID, { nullable: true })
-  id: string;
+  questionId: string;
 
   @Field(() => String)
   question: string;
@@ -12,7 +29,10 @@ export class QuestionInput {
   answer: string;
 
   @Field(() => [ChoiceInput])
-  chioces: ChoiceInput[];
+  choices: ChoiceInput[];
+
+  @Field(() => QuizInput)
+  quiz: QuizInput;
 }
 
 @InputType()
@@ -25,10 +45,4 @@ export class ChoiceInput {
 
   @Field(() => QuestionInput, { nullable: true })
   question: QuestionInput;
-}
-
-@InputType()
-export class QuizInput {
-  @Field(() => ID)
-  id: string;
 }

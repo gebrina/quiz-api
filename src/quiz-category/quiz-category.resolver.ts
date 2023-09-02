@@ -1,7 +1,8 @@
 import { Inject } from '@nestjs/common';
-import { Resolver, Query, Parent, Args } from '@nestjs/graphql';
+import { Resolver, Query, Parent, Args, Mutation } from '@nestjs/graphql';
 import { QuizCategory } from 'src/entities/quiz-category.entity';
 import { QuizCategoryService } from './quiz-category.service';
+import { QuizCategoryInput } from 'src/input-types/quiz-category.input';
 
 @Resolver((of) => QuizCategory)
 export class QuizCategoryResolver {
@@ -9,4 +10,19 @@ export class QuizCategoryResolver {
     @Inject(QuizCategoryService)
     private quizCategoryService: QuizCategoryService,
   ) {}
+
+  @Query(() => [QuizCategory])
+  findAllQuizCategory() {
+    return this.quizCategoryService.findAll();
+  }
+
+  @Query(() => QuizCategory)
+  findOneQuizCategory(@Args('categoryInput') categoryId: string) {
+    return this.quizCategoryService.findOne(categoryId);
+  }
+
+  @Mutation(() => QuizCategory)
+  createQuizCategory(@Args('categoryInput') categoryInput: QuizCategoryInput) {
+    return this.quizCategoryService.create(categoryInput);
+  }
 }

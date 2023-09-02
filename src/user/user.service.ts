@@ -10,19 +10,19 @@ export class UserService {
     @InjectRepository(User) private readonly userRepo: Repository<User>,
   ) {}
 
-  async findAll(): Promise<UserInput[]> {
+  async findAll(): Promise<User[]> {
     return await this.userRepo.find();
   }
 
-  async findOne(userId: string): Promise<UserInput> {
-    return this.userRepo.findOneBy({ id: userId });
+  async findOne(userId: string): Promise<User> {
+    return await this.userRepo.findOneBy({ id: userId });
   }
 
-  async create(user: UserInput): Promise<UserInput> {
+  async create(user: UserInput): Promise<User> {
     return await this.userRepo.save(user);
   }
 
-  async updateUser(user: UserInput): Promise<UserInput> {
+  async updateUser(user: UserInput): Promise<User> {
     let userToBeUpdated = await this.findOne(user.id);
     if (!userToBeUpdated) throw new NotFoundException('Invalid  user id');
     userToBeUpdated = user;

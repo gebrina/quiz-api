@@ -18,7 +18,7 @@ type Question {
   questionId: ID!
   question: String!
   answer: String!
-  choice: [Choice!]!
+  choices: [Choice!]!
   quiz: Quiz!
 }
 
@@ -63,4 +63,32 @@ input UserInput {
   password: String!
   createdAt: DateTime
   updatedAt: DateTime
+  quizzes: [QuizInput!]!
+}
+
+input QuizInput {
+  id: ID!
+  questions: [QuestionInput!]!
+  user: UserInput!
+  category: QuizCategoryInput!
+}
+
+input QuestionInput {
+  questionId: ID
+  question: String!
+  answer: String!
+  choices: [ChoiceInput!]!
+  quiz: QuizInput!
+}
+
+input ChoiceInput {
+  id: ID!
+  choice: String!
+  question: QuestionInput
+}
+
+input QuizCategoryInput {
+  id: ID!
+  name: String!
+  quizzes: [QuizInput!]!
 }
