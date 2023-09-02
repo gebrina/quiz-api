@@ -8,6 +8,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { getConOptions } from './config/db-con-config';
 import { UserModule } from './user/user.module';
 import { QuizModule } from './quiz/quiz.module';
+import { QuizCategoryModule } from './quiz-category/quiz-categroy.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { QuizModule } from './quiz/quiz.module';
     }),
     UserModule,
     QuizModule,
+    QuizCategoryModule,
   ],
   controllers: [AppController],
   providers: [AppService],

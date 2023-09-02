@@ -25,4 +25,14 @@ export class QuizCategoryResolver {
   createQuizCategory(@Args('categoryInput') categoryInput: QuizCategoryInput) {
     return this.quizCategoryService.create(categoryInput);
   }
+
+  @Mutation(() => QuizCategory)
+  updateQuizCategory(@Args('categoryInput') categoryInput: QuizCategoryInput) {
+    return this.quizCategoryService.update(categoryInput);
+  }
+
+  @Mutation(() => QuizCategory)
+  deleteQuizCategory(@Args('categoryId') categoryId: string) {
+    return this.quizCategoryService.delete(categoryId);
+  }
 }

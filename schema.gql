@@ -48,11 +48,16 @@ scalar DateTime
 type Query {
   findAllUser: [User!]!
   findOneUser(userId: String!): User!
+  findAllQuizCategory: [QuizCategory!]!
+  findOneQuizCategory(categoryInput: String!): QuizCategory!
 }
 
 type Mutation {
   createUser(user: UserInput!): User!
   deleteUser(userId: String!): User!
+  createQuizCategory(categoryInput: QuizCategoryInput!): QuizCategory!
+  updateQuizCategory(categoryInput: QuizCategoryInput!): QuizCategory!
+  deleteQuizCategory(categoryId: String!): QuizCategory!
 }
 
 input UserInput {
