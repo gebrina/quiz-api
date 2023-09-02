@@ -26,13 +26,13 @@ export class User {
 
   @Field({ nullable: true })
   @CreateDateColumn({ default: new Date() })
-  createAt: Date;
+  createdAt: Date;
 
-  @Field()
-  @Column()
+  @Field(() => String)
+  @Column({ unique: true })
   email: string;
 
-  @Field()
+  @Field(() => String)
   @Column()
   password: string;
 
