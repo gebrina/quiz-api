@@ -6,6 +6,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { getConOptions } from './config/db-con-config';
+import { UserModule } from './user/user.module';
+import { QuizModule } from './quiz/quiz.module';
 
 @Module({
   imports: [
@@ -21,6 +23,8 @@ import { getConOptions } from './config/db-con-config';
       driver: ApolloDriver,
       autoSchemaFile: 'schema.gql',
     }),
+    UserModule,
+    QuizModule,
   ],
   controllers: [AppController],
   providers: [AppService],
