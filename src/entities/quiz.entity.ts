@@ -18,8 +18,7 @@ export class Quiz {
   id: string;
 
   @Field(() => QuizCategory)
-  @Column()
-  @ManyToOne(() => QuizCategory, (category) => category.quizs)
+  @ManyToOne(() => QuizCategory, (category) => category.quizzes)
   category: QuizCategory;
 
   @Field(() => User)

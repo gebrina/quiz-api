@@ -15,5 +15,5 @@ export class QuizCategory {
 
   @Field(() => [Quiz])
   @OneToMany(() => Quiz, (quiz) => quiz.category)
-  quizs: Quiz[];
+  quizzes: Quiz[];
 }

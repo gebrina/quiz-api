@@ -25,7 +25,7 @@ export class User {
   lastName: string;
 
   @Field({ nullable: true })
-  @CreateDateColumn({ default: Date.now() })
+  @CreateDateColumn({ default: new Date() })
   createAt: Date;
 
   @Field({ nullable: true })
