@@ -18,12 +18,4 @@ export class Quiz {
   @Field(() => User)
   @ManyToOne(() => User, (user) => user.quizzes)
   user: User;
-
-  @Field()
-  @Column()
-  questing: string;
-
-  @Field()
-  @Column()
-  answer: string;
 }
