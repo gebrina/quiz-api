@@ -12,8 +12,18 @@ export class UserResolver {
     return this.userService.findAll();
   }
 
+  @Query(() => User)
+  findOneUser(@Args('userId') userId: string) {
+    return this.userService.findOne(userId);
+  }
+
   @Mutation(() => User)
   createUser(@Args('user') user: UserInput) {
     return this.userService.create(user);
+  }
+
+  @Mutation(() => User)
+  deleteUser(@Args('userId') userId: string) {
+    return this.userService.deleteUser(userId);
   }
 }

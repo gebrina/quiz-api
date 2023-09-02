@@ -47,10 +47,12 @@ scalar DateTime
 
 type Query {
   findAllUser: [User!]!
+  findOneUser(userId: String!): User!
 }
 
 type Mutation {
   createUser(user: UserInput!): User!
+  deleteUser(userId: String!): User!
 }
 
 input UserInput {

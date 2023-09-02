@@ -29,7 +29,8 @@ export class UserService {
     return this.userRepo.save(userToBeUpdated);
   }
 
-  async deleteUser(userId: string): Promise<void> {
+  async deleteUser(userId: string): Promise<String> {
     await this.userRepo.delete(userId);
+    return userId;
   }
 }
