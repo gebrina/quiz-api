@@ -34,6 +34,8 @@ type User {
   firstName: String!
   lastName: String!
   createAt: DateTime
+  email: String!
+  password: String!
   updatedAt: DateTime
   quizzes: [Quiz!]!
 }

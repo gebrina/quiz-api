@@ -28,6 +28,14 @@ export class User {
   @CreateDateColumn({ default: new Date() })
   createAt: Date;
 
+  @Field()
+  @Column()
+  email: string;
+
+  @Field()
+  @Column()
+  password: string;
+
   @Field({ nullable: true })
   @UpdateDateColumn()
   updatedAt: Date;
