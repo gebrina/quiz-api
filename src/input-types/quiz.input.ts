@@ -3,6 +3,15 @@ import { UserInput } from './user.input';
 import { QuizCategoryInput } from './quiz-category.input';
 
 @InputType()
+export class Choice {
+  @Field()
+  label: string | number;
+
+  @Field()
+  answer: string;
+}
+
+@InputType()
 export class QuizInput {
   @Field(() => ID, { nullable: true })
   id: string;
@@ -12,4 +21,13 @@ export class QuizInput {
 
   @Field(() => QuizCategoryInput)
   category: QuizCategoryInput;
+
+  @Field(() => String)
+  qusetion: string;
+
+  @Field(() => String)
+  answer: string;
+
+  @Field()
+  choices: Choice[];
 }

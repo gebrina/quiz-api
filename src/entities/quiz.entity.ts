@@ -1,8 +1,14 @@
 import { ObjectType, Field, ID } from '@nestjs/graphql';
-import { Entity, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  OneToMany,
+  Column,
+} from 'typeorm';
 import { QuizCategory } from './quiz-category.entity';
 import { User } from './user.entity';
-import { Question } from './question.entity';
+import { Choice } from 'src/input-types/quiz.input';
 
 @ObjectType()
 @Entity('quizes')
@@ -19,7 +25,15 @@ export class Quiz {
   @ManyToOne(() => User, (user) => user.quizzes)
   user: User;
 
-  @Field(() => [Question])
-  @OneToMany(() => Question, (question) => question.quiz)
-  questions: Question[];
+  @Field(() => String)
+  @Column({ unique: true })
+  qusetion: string;
+
+  @Field(() => String)
+  @Column()
+  answer: string;
+
+  @Field()
+  @Column()
+  choices: Choice[];
 }
