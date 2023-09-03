@@ -80,12 +80,12 @@ input QuizInput {
 
 input QuizCategoryInput {
   id: ID
-  name: String!
+  name: String
   quizzes: [QuizInput!]
 }
 
 input ChoiceInput {
-  id: ID!
+  id: ID
   answer: String!
-  quiz: QuizInput!
+  quiz: QuizInput
 }

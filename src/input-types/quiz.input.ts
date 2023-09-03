@@ -25,12 +25,12 @@ export class QuizInput {
 
 @InputType()
 export class ChoiceInput {
-  @Field(() => ID)
+  @Field(() => ID, { nullable: true })
   id: string;
 
   @Field()
   answer: string;
 
-  @Field(() => QuizInput)
+  @Field(() => QuizInput, { nullable: true })
   quiz: QuizInput;
 }

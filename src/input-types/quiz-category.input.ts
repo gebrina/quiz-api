@@ -6,7 +6,7 @@ export class QuizCategoryInput {
   @Field(() => ID, { nullable: true })
   id: string;
 
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   name: string;
 
   @Field(() => [QuizInput], { nullable: true })
