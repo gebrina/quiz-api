@@ -34,6 +34,6 @@ export class Quiz {
   correctAnswer: string;
 
   @Field(() => [Choice])
-  @OneToMany(() => Choice, (choice) => choice.quiz)
+  @OneToMany(() => Choice, (choice) => choice.quiz, { onDelete: 'CASCADE' })
   answers: Choice[];
 }
