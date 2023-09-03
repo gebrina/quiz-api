@@ -9,13 +9,13 @@ export class UserInput {
   @Field(() => String, { nullable: true })
   firstName: string;
 
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   lastName: string;
 
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   email: string;
 
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   password: string;
 
   @Field(() => Date, { nullable: true })
@@ -24,6 +24,6 @@ export class UserInput {
   @Field(() => Date, { nullable: true })
   updatedAt: Date;
 
-  @Field(() => [QuizInput])
+  @Field(() => [QuizInput], { nullable: true })
   quizzes: QuizInput[];
 }

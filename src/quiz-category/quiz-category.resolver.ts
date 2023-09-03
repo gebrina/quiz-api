@@ -17,7 +17,7 @@ export class QuizCategoryResolver {
   }
 
   @Query(() => QuizCategory)
-  findOneQuizCategory(@Args('categoryInput') categoryId: string) {
+  findOneQuizCategory(@Args('categoryId') categoryId: string) {
     return this.quizCategoryService.findOne(categoryId);
   }
 

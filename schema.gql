@@ -48,13 +48,18 @@ scalar DateTime
 type Query {
   findAllUser: [User!]!
   findOneUser(userId: String!): User!
+  findAllQuiz: [Quiz!]!
+  findOneQuiz(quizId: String!): Quiz!
   findAllQuizCategory: [QuizCategory!]!
-  findOneQuizCategory(categoryInput: String!): QuizCategory!
+  findOneQuizCategory(categoryId: String!): QuizCategory!
 }
 
 type Mutation {
   createUser(user: UserInput!): User!
   deleteUser(userId: String!): User!
+  createQuiz(quizInput: QuizInput!): Quiz!
+  updateQuiz(quizInput: QuizInput!): Quiz!
+  deleteQuiz(quizId: String!): Quiz!
   createQuizCategory(categoryInput: QuizCategoryInput!): QuizCategory!
   updateQuizCategory(categoryInput: QuizCategoryInput!): QuizCategory!
   deleteQuizCategory(categoryId: String!): QuizCategory!
@@ -63,12 +68,12 @@ type Mutation {
 input UserInput {
   id: ID
   firstName: String
-  lastName: String!
-  email: String!
-  password: String!
+  lastName: String
+  email: String
+  password: String
   createdAt: DateTime
   updatedAt: DateTime
-  quizzes: [QuizInput!]!
+  quizzes: [QuizInput!]
 }
 
 input QuizInput {
@@ -83,17 +88,17 @@ input QuestionInput {
   question: String!
   answer: String!
   choices: [ChoiceInput!]!
-  quiz: QuizInput!
+  quiz: QuizInput
 }
 
 input ChoiceInput {
-  id: ID!
+  id: ID
   choice: String!
   question: QuestionInput
 }
 
 input QuizCategoryInput {
   id: ID
-  name: String!
+  name: String
   quizzes: [QuizInput!]
 }
