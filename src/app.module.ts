@@ -9,6 +9,7 @@ import { getConOptions } from './config/db-con-config';
 import { UserModule } from './user/user.module';
 import { QuizModule } from './quiz/quiz.module';
 import { QuizCategoryModule } from './quiz-category/quiz-categroy.module';
+import { ChoiceModule } from './choice/choice.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { QuizCategoryModule } from './quiz-category/quiz-categroy.module';
     UserModule,
     QuizModule,
     QuizCategoryModule,
+    ChoiceModule,
   ],
   controllers: [AppController],
   providers: [AppService],

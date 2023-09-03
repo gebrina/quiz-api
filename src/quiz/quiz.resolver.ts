@@ -3,10 +3,14 @@ import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
 import { Quiz } from 'src/entities/quiz.entity';
 import { QuizService } from './quiz.service';
 import { QuizInput } from 'src/input-types/quiz.input';
+import { ChoiceService } from 'src/choice/choice.service';
 
 @Resolver((of) => Quiz)
 export class QuizResolver {
-  constructor(@Inject(QuizService) private quizService: QuizService) {}
+  constructor(
+    @Inject(QuizService) private quizService: QuizService,
+    @Inject(ChoiceService) private readonly choiceService: ChoiceService,
+  ) {}
 
   @Query(() => [Quiz])
   findAllQuiz() {

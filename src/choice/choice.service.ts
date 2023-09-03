@@ -1,8 +1,28 @@
-import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { Injectable } from '@nestjs/common';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
 import { Choice } from 'src/entities/choice.entity';
 
-@Module({
-  imports: [TypeOrmModule.forFeature([Choice])],
-})
-export class ChoiceModule {}
+@Injectable()
+export class ChoiceService {
+  constructor(
+    @InjectRepository(Choice) private readonly choiceSRepo: Repository<Choice>,
+  ) {}
+
+  async findAllChoice(): Promise<Choice[]> {
+    return this.choiceSRepo.find({ relations: { quiz: true } });
+  }
+
+  async findOne(choiceId: string): Promise<Choice> {
+    return await this.choiceSRepo.findOne({
+      where: { id: choiceId },
+      relations: {
+        quiz: true,
+      },
+    });
+  }
+
+  async create(choice: Choice): Promise<Choice> {
+    return await this.choiceSRepo.save(choice);
+  }
+}
