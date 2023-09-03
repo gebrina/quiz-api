@@ -8,10 +8,10 @@ import {
 } from 'typeorm';
 import { QuizCategory } from './quiz-category.entity';
 import { User } from './user.entity';
-import { Choice } from 'src/input-types/quiz.input';
+import { Choice } from './choice.entity';
 
 @ObjectType()
-@Entity('quizes')
+@Entity('quizzes')
 export class Quiz {
   @Field(() => ID)
   @PrimaryGeneratedColumn('uuid')
@@ -31,9 +31,9 @@ export class Quiz {
 
   @Field(() => String)
   @Column()
-  answer: string;
+  correctAnswer: string;
 
-  @Field()
-  @Column()
-  choices: Choice[];
+  @Field(() => [Choice])
+  @OneToMany(() => Choice, (choice) => choice.quiz)
+  answers: Choice[];
 }

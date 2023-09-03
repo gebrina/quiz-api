@@ -10,23 +10,16 @@ type QuizCategory {
 
 type Choice {
   id: ID!
-  choice: String!
-  question: Question!
-}
-
-type Question {
-  questionId: ID!
-  question: String!
   answer: String!
-  choices: [Choice!]!
-  quiz: Quiz!
 }
 
 type Quiz {
   id: ID!
   category: QuizCategory!
   user: User!
-  questions: [Question!]!
+  qusetion: String!
+  correctAnswer: String!
+  answers: [Choice!]!
 }
 
 type User {
@@ -78,27 +71,21 @@ input UserInput {
 
 input QuizInput {
   id: ID
-  questions: [QuestionInput!]!
   user: UserInput!
   category: QuizCategoryInput!
-}
-
-input QuestionInput {
-  questionId: ID
-  question: String!
-  answer: String!
-  choices: [ChoiceInput!]!
-  quiz: QuizInput
-}
-
-input ChoiceInput {
-  id: ID
-  choice: String!
-  question: QuestionInput
+  qusetion: String!
+  correctAnswer: String!
+  answers: [ChoiceInput!]!
 }
 
 input QuizCategoryInput {
   id: ID
-  name: String
+  name: String!
   quizzes: [QuizInput!]
+}
+
+input ChoiceInput {
+  id: ID!
+  answer: String!
+  quiz: QuizInput!
 }

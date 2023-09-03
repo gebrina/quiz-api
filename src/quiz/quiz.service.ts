@@ -10,7 +10,7 @@ export class QuizService {
   ) {}
   quizRelations = {
     category: true,
-    questions: true,
+    answers: true,
     user: true,
   };
 
