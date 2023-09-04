@@ -32,7 +32,7 @@ export class User {
   @Column({ unique: true })
   email: string;
 
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   @Column()
   password: string;
 

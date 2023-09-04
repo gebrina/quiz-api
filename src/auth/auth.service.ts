@@ -14,7 +14,8 @@ export class AuthService {
     if (!user) throw new UnauthorizedException('Invalid Credentials');
     if (user.password === password) {
       const access_token = this.jwtService.sign({ sub: user.id, user });
-      return access_token;
+      const { password, ...result } = user;
+      return { access_token, user: result };
     } else {
       throw new UnauthorizedException('Invalid password');
     }

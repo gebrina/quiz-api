@@ -10,6 +10,7 @@ import { UserModule } from './user/user.module';
 import { QuizModule } from './quiz/quiz.module';
 import { QuizCategoryModule } from './quiz-category/quiz-categroy.module';
 import { ChoiceModule } from './choice/choice.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -36,6 +37,7 @@ import { ChoiceModule } from './choice/choice.module';
     QuizModule,
     QuizCategoryModule,
     ChoiceModule,
+    AuthModule,
   ],
   providers: [AppService],
 })
