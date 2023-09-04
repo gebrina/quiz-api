@@ -2,9 +2,9 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { JwtModule } from '@nestjs/jwt';
+import { AppService } from './app.service';
 import { getConOptions } from './config/db-con-config';
 import { UserModule } from './user/user.module';
 import { QuizModule } from './quiz/quiz.module';
@@ -25,12 +25,18 @@ import { ChoiceModule } from './choice/choice.module';
       driver: ApolloDriver,
       autoSchemaFile: 'schema.gql',
     }),
+    JwtModule.register({
+      secret: process.env.JWT_SECRET,
+      global: true,
+      signOptions: {
+        expiresIn: '60s',
+      },
+    }),
     UserModule,
     QuizModule,
     QuizCategoryModule,
     ChoiceModule,
   ],
-  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
