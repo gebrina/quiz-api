@@ -2,7 +2,7 @@ import { Inject } from '@nestjs/common';
 import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
 import { Quiz } from 'src/entities/quiz.entity';
 import { QuizService } from './quiz.service';
-import { ChoiceInput, QuizInput } from 'src/input-types/quiz.input';
+import { QuizInput } from 'src/input-types/quiz.input';
 import { ChoiceService } from 'src/choice/choice.service';
 
 @Resolver((of) => Quiz)
