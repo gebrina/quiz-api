@@ -9,7 +9,7 @@ export class AuthResover {
   constructor(@Inject(AuthService) private readonly authService: AuthService) {}
 
   @Mutation(() => AuthUserModel)
-  async auth(@Args('user') user: AuthInput) {
+  async authUser(@Args('user') user: AuthInput) {
     return this.authService.login(user.email, user.password);
   }
 }
