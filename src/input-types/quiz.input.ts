@@ -19,7 +19,7 @@ export class QuizInput {
   @Field(() => String)
   correctAnswer: string;
 
-  @Field(() => [ChoiceInput])
+  @Field(() => [ChoiceInput], { nullable: true })
   answers: ChoiceInput[];
 }
 
@@ -28,7 +28,7 @@ export class ChoiceInput {
   @Field(() => ID, { nullable: true })
   id: string;
 
-  @Field()
+  @Field({ nullable: true })
   answer: string;
 
   @Field(() => QuizInput, { nullable: true })

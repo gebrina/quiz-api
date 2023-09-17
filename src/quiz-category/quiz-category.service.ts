@@ -11,13 +11,25 @@ export class QuizCategoryService {
   ) {}
 
   async findAll(): Promise<QuizCategory[]> {
-    return await this.quizCategoryRepo.find({ relations: { quizzes: true } });
+    return await this.quizCategoryRepo.find({
+      relations: {
+        quizzes: {
+          answers: true,
+          user: true,
+        },
+      },
+    });
   }
 
   async findOne(id: string): Promise<QuizCategory> {
     return await this.quizCategoryRepo.findOne({
       where: { id },
-      relations: { quizzes: true },
+      relations: {
+        quizzes: {
+          answers: true,
+          user: true,
+        },
+      },
     });
   }
 

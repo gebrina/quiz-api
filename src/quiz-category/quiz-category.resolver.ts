@@ -1,8 +1,9 @@
 import { Inject } from '@nestjs/common';
-import { Resolver, Query, Parent, Args, Mutation, ID } from '@nestjs/graphql';
+import { Resolver, Query, Args, Mutation } from '@nestjs/graphql';
 import { QuizCategory } from 'src/entities/quiz-category.entity';
 import { QuizCategoryService } from './quiz-category.service';
 import { QuizCategoryInput } from 'src/input-types/quiz-category.input';
+import { Public } from 'src/decorators/public.decorator';
 
 @Resolver((of) => QuizCategory)
 export class QuizCategoryResolver {
@@ -12,6 +13,7 @@ export class QuizCategoryResolver {
   ) {}
 
   @Query(() => [QuizCategory])
+  @Public()
   findAllQuizCategory() {
     return this.quizCategoryService.findAll();
   }

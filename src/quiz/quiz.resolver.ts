@@ -4,6 +4,7 @@ import { Quiz } from 'src/entities/quiz.entity';
 import { QuizService } from './quiz.service';
 import { QuizInput } from 'src/input-types/quiz.input';
 import { ChoiceService } from 'src/choice/choice.service';
+import { Public } from 'src/decorators/public.decorator';
 
 @Resolver((of) => Quiz)
 export class QuizResolver {
@@ -13,6 +14,7 @@ export class QuizResolver {
   ) {}
 
   @Query(() => [Quiz])
+  @Public()
   findAllQuiz() {
     return this.quizService.findAll();
   }

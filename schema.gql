@@ -89,7 +89,7 @@ input QuizInput {
   category: QuizCategoryInput!
   qusetion: String!
   correctAnswer: String!
-  answers: [ChoiceInput!]!
+  answers: [ChoiceInput!]
 }
 
 input QuizCategoryInput {
@@ -100,7 +100,7 @@ input QuizCategoryInput {
 
 input ChoiceInput {
   id: ID
-  answer: String!
+  answer: String
   quiz: QuizInput
 }
 

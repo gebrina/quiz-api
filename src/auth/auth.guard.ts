@@ -25,7 +25,7 @@ export class AuthGuard implements CanActivate {
     ]);
     if (isPublic) return true;
 
-    const access_token = request.headers.authorization.split(' ')[1];
+    const access_token = request.headers.authorization?.split(' ')[1];
     const verify = this.verifyToken(access_token);
     return verify;
   }
