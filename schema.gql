@@ -62,6 +62,7 @@ type Query {
 
 type Mutation {
   createUser(user: UserInput!): User!
+  updateUser(user: UserInput!): User!
   deleteUser(userId: String!): User!
   createQuiz(quizInput: QuizInput!): Quiz!
   updateQuiz(quizInput: QuizInput!): Quiz!
