@@ -19,6 +19,7 @@ export class UserResolver {
   }
 
   @Mutation(() => User)
+  @Public()
   createUser(@Args('user') user: UserInput) {
     return this.userService.create(user);
   }
