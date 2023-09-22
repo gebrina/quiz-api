@@ -3,7 +3,7 @@
 # ------------------------------------------------------
 
 type QuizCategory {
-  id: ID!
+  id: ID
   name: String!
   quizzes: [Quiz!]!
 }

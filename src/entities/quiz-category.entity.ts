@@ -5,7 +5,7 @@ import { Quiz } from './quiz.entity';
 @ObjectType()
 @Entity()
 export class QuizCategory {
-  @Field(() => ID)
+  @Field(() => ID, { nullable: true })
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
