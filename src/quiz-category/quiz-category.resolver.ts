@@ -19,6 +19,7 @@ export class QuizCategoryResolver {
   }
 
   @Query(() => QuizCategory)
+  @Public()
   findOneQuizCategory(@Args('categoryId') categoryId: string) {
     return this.quizCategoryService.findOne(categoryId);
   }
