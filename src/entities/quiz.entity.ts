@@ -18,11 +18,13 @@ export class Quiz {
   id: string;
 
   @Field(() => QuizCategory)
-  @ManyToOne(() => QuizCategory, (category) => category.quizzes)
+  @ManyToOne(() => QuizCategory, (category) => category.quizzes, {
+    onDelete: 'NO ACTION',
+  })
   category: QuizCategory;
 
   @Field(() => User)
-  @ManyToOne(() => User, (user) => user.quizzes)
+  @ManyToOne(() => User, (user) => user.quizzes, { onDelete: 'NO ACTION' })
   user: User;
 
   @Field(() => String)
@@ -35,8 +37,10 @@ export class Quiz {
 
   @Field(() => [Choice])
   @OneToMany(() => Choice, (choice) => choice.quiz, {
+    cascade: true,
     onDelete: 'CASCADE',
     onUpdate: 'CASCADE',
+    eager: true,
   })
   answers: Choice[];
 }

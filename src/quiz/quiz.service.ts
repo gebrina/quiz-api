@@ -31,7 +31,8 @@ export class QuizService {
 
   async update(quiz: Quiz) {
     let quizTobeUpdated = await this.findOne(quiz.id);
-    if (quizTobeUpdated) throw new BadRequestException();
+    console.dir(quiz);
+    if (!quizTobeUpdated) throw new BadRequestException();
     quizTobeUpdated = quiz;
     return await this.quizRepo.save(quizTobeUpdated);
   }

@@ -33,7 +33,7 @@ import { AuthGuard } from './auth/auth.guard';
       secret: process.env.JWT_SECRET,
       global: true,
       signOptions: {
-        expiresIn: '60s',
+        expiresIn: '3d',
       },
     }),
     UserModule,

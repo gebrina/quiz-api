@@ -13,6 +13,6 @@ export class Choice {
   @Column()
   answer: string;
 
-  @ManyToOne(() => Quiz, (quiz) => quiz.answers)
+  @ManyToOne(() => Quiz, (quiz) => quiz.answers, { onDelete: 'CASCADE' })
   quiz: Quiz;
 }
